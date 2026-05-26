@@ -8,7 +8,7 @@ const highlights = [
   {
     icon: Shield,
     title: "Premium Quality",
-    description: "Only the finest commercial-grade equipment from world-renowned brands.",
+    description: "Only the finest commercial grade equipment from world-renowned brands.",
   },
   {
     icon: Wrench,
@@ -18,7 +18,7 @@ const highlights = [
   {
     icon: Award,
     title: "Trusted Since 2015",
-    description: "A family-run business built on trust, integrity, and lasting client partnerships.",
+    description: "A family run business built on trust, integrity, and lasting client partnerships.",
   },
   {
     icon: Users,
@@ -50,7 +50,7 @@ export default function AboutSection() {
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             About{" "}
-            <span className="gradient-text">A.R &amp; Sons</span>
+            <span className="gradient-text">AR &amp; Sons</span>
           </h2>
           <div className="section-divider mb-8" />
         </motion.div>
@@ -64,19 +64,19 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="text-lg text-muted leading-relaxed mb-6">
-              Founded in <strong className="text-foreground">2015</strong>, A.R &amp; Sons is a
-              family-run business dedicated to providing{" "}
+              Founded in <strong className="text-foreground">2015</strong>, AR &amp; Sons is a
+              family run business dedicated to providing{" "}
               <strong className="text-foreground">high-quality fitness equipment</strong> for
               commercial and high-end residential use across Pakistan.
             </p>
             <p className="text-lg text-muted leading-relaxed mb-6">
               With a strong <strong className="text-foreground">technical force</strong> and deep
-              expertise in installation, maintenance, and consultation, we have become the trusted
-              partner for gyms, sports clubs, hotels, and wellness centers throughout Karachi and
-              beyond.
+              expertise in installation, maintenance, and consultation, we have become the <strong className="text-foreground">trusted
+                partner for Gyms, Sports Clubs, Hotels, Parlours, Home/Offices, and Wellness Centers throughout Karachi and
+                beyond.</strong>
             </p>
             <p className="text-lg text-muted leading-relaxed mb-8">
-              Our commitment extends beyond just supply — we offer comprehensive{" "}
+              Our commitment extends beyond just supply we offer comprehensive{" "}
               <strong className="text-foreground">spare parts, repairing services</strong>, and
               weekly/monthly aftercare packages, ensuring your investment performs at its best for
               years to come.

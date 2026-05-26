@@ -57,13 +57,13 @@ export default function Footer() {
               <div className="bg-white rounded-xl p-1.5">
                 <Image
                   src="/AR-logo.png"
-                  alt="A.R & Sons Logo"
+                  alt="AR & Sons Logo"
                   width={44}
                   height={44}
                 />
               </div>
               <div>
-                <p className="text-lg font-bold leading-tight">A.R &amp; Sons</p>
+                <p className="text-lg font-bold leading-tight">AR &amp; Sons</p>
                 <p className="text-xs text-white/50 tracking-widest uppercase">
                   Fitness Solutions
                 </p>

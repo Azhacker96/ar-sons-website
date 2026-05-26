@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "A.R & Sons — Premium Fitness Equipment & Solutions | Karachi, Pakistan",
+  title: "AR & Sons — Premium Fitness Equipment & Solutions | Karachi, Pakistan",
   description:
-    "A.R & Sons provides premium commercial gym equipment, steam & sauna installations, swimming pool & Jacuzzi services, and cold plunge therapy solutions in Karachi, Pakistan. Authorized dealers of Cybex, Life Fitness, Precor, Techno Gym, Tylo, and Harvia.",
+    "AR & Sons provides premium commercial gym equipment, steam & sauna installations, swimming pool & Jacuzzi services, and cold plunge therapy solutions in Karachi, Pakistan. Authorized dealers of Cybex, Life Fitness, Precor, Techno Gym, Tylo, and Harvia.",
   keywords: [
     "Fitness Equipment Karachi",
     "Commercial Gym Installation Pakistan",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "Precor Pakistan",
     "Techno Gym Karachi",
   ],
-  authors: [{ name: "A.R & Sons Fitness Solutions" }],
+  authors: [{ name: "AR & Sons Fitness Solutions" }],
   openGraph: {
-    title: "A.R & Sons — Premium Fitness Equipment & Solutions",
+    title: "AR & Sons — Premium Fitness Equipment & Solutions",
     description:
       "Pakistan's trusted partner for commercial gym equipment, wellness solutions, and professional installation services since 2015.",
     type: "website",

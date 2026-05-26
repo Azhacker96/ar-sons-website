@@ -144,7 +144,7 @@ export default function ContactSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="A.R & Sons Office Location"
+                title="AR & Sons Office Location"
               />
             </motion.div>
           </motion.div>

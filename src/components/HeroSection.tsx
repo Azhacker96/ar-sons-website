@@ -1,28 +1,63 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HeroSection() {
+  const images = [
+    "/hero-gym.png",
+    "/cardio-1.png",
+    "/strength-1.png",
+    "/design-1.png"
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentImageIndex, images.length]);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24 md:pb-32 pt-20"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-gym.png"
-          alt="Premium fitness equipment showroom"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0 bg-black">
+        <AnimatePresence>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={images[currentImageIndex]}
+              alt="Premium fitness equipment showroom"
+              fill
+              className="object-cover"
+              priority={currentImageIndex === 0}
+              quality={90}
+            />
+          </motion.div>
+        </AnimatePresence>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary/30 via-transparent to-transparent" />
       </div>
 
       {/* Animated Background Particles */}
@@ -84,7 +119,7 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light"
           >
-            Where Quality Matters — Premium commercial gym equipment,
+            Where Quality Matters Premium commercial gym equipment,
             installation, and wellness solutions for Pakistan&apos;s elite
             fitness facilities.
           </motion.p>
@@ -132,9 +167,9 @@ export default function HeroSection() {
         >
           {[
             { value: "10+", label: "Years Experience" },
-            { value: "100+", label: "Projects Completed" },
-            { value: "50+", label: "Happy Clients" },
-            { value: "8+", label: "Brand Partners" },
+            { value: "300+", label: "Projects Completed" },
+            { value: "1,000+", label: "Happy Clients" },
+            { value: "6+", label: "a Cross Cities" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <p className="text-2xl sm:text-3xl font-bold text-white">
@@ -146,6 +181,37 @@ export default function HeroSection() {
             </div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Slider Controls - Arrows */}
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 flex justify-between px-4 sm:px-8 pointer-events-none">
+        <button
+          onClick={prevImage}
+          className="p-3 rounded-full bg-black/20 text-white/70 hover:bg-black/50 hover:text-white backdrop-blur-sm transition-all pointer-events-auto"
+        >
+          <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+        </button>
+        <button
+          onClick={nextImage}
+          className="p-3 rounded-full bg-black/20 text-white/70 hover:bg-black/50 hover:text-white backdrop-blur-sm transition-all pointer-events-auto"
+        >
+          <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+        </button>
+      </div>
+
+      {/* Slider Controls - Dots */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentImageIndex(idx)}
+            className={`h-2.5 rounded-full transition-all duration-300 ${currentImageIndex === idx
+              ? "bg-primary w-8"
+              : "bg-white/50 w-2.5 hover:bg-white/80"
+              }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
       </div>
 
       {/* Scroll Indicator */}

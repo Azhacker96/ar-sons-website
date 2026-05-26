@@ -2,17 +2,8 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import {
-  Dumbbell,
-  Heart,
-  Droplets,
-  Flame,
-  Waves,
-  Snowflake,
-  Settings,
-  Bike,
-} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { categories, services } from "@/data/services";
 
 export default function ServicesSection() {
@@ -78,7 +69,6 @@ export default function ServicesSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <AnimatePresence mode="wait">
             {filteredServices.map((service, i) => {
-              const Icon = service.icon;
               return (
                 <motion.div
                   key={service.title}
@@ -94,20 +84,25 @@ export default function ServicesSection() {
                   >
                   {/* Category Badge */}
                   <span
-                    className={`absolute top-4 right-4 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider ${
+                    className={`absolute z-10 top-8 right-8 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider ${
                       service.category === "fitness"
-                        ? "bg-blue-500/10 text-blue-500"
+                        ? "bg-blue-500/90 text-white backdrop-blur-sm"
                         : service.category === "wellness"
-                        ? "bg-emerald-500/10 text-emerald-500"
-                        : "bg-amber-500/10 text-amber-500"
+                        ? "bg-emerald-500/90 text-white backdrop-blur-sm"
+                        : "bg-amber-500/90 text-white backdrop-blur-sm"
                     }`}
                   >
                     {service.category}
                   </span>
 
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
-                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-500" />
+                  {/* Image */}
+                  <div className="relative w-full h-48 rounded-xl overflow-hidden mb-5 bg-primary/5">
+                    <Image
+                      src={service.images[0]}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
                   </div>
 
                   {/* Content */}

@@ -33,11 +33,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
+        ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -45,7 +44,7 @@ export default function Header() {
           <a href="/" className="flex items-center gap-3 group">
             <Image
               src="/AR-logo.png"
-              alt="A.R & Sons Logo"
+              alt="AR & Sons Logo"
               width={56}
               height={56}
               className="transition-transform duration-300 group-hover:scale-110"
@@ -53,10 +52,10 @@ export default function Header() {
             />
             <div className="hidden sm:block">
               <p className={`text-lg font-bold leading-tight tracking-tight transition-colors duration-500 ${scrolled ? 'text-foreground' : 'text-white'}`}>
-                A.R & Sons
+                AR & Sons
               </p>
               <p className={`text-xs tracking-widest uppercase transition-colors duration-500 ${scrolled ? 'text-muted' : 'text-white/70'}`}>
-                Where Quality Matters
+                Fitness Solutions Services
               </p>
             </div>
           </a>
